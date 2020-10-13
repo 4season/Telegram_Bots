@@ -42,23 +42,28 @@ def telegram():
     if textM == '/get_bot_inof':
         text = """
         Just Do It! v(0.1.0)
-        귀찮은 작업을 미루지않게 도와주는 봇입니다.
+귀찮은 작업을 미루지않게 도와주는 봇입니다.
         """
-    if textM == '/set_work_new':
+    elif textM == '/set_work_new':
         text = """
         할일의 이름을 말씀해주세요.
         """
-    if textM == '/get_work_list':
+    elif textM == '/get_work_list':
         text = """
         할일이 없다니, 나태하군요.
         """
-    if textM == '/set_work_on':
+    elif textM == '/set_work_on':
         text = """
         알림을 시작합니다.
         """
-    if textM == '/set_work_off':
+    elif textM == '/set_work_off':
         text = """
         알림을 종료합니다.
+        """
+    else:
+        text = """
+        죄송합니다, 반응할수 없는 명령어입니다.
+다시 시도해 주세요.
         """
     sendMessage(chat_id,text)
     return json.dumps({'success':True})
