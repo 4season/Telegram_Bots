@@ -26,7 +26,9 @@ def sendMessage(chat_id, text):
 
 @app.route('/')
 def hello_world():
-    return 'Hello from Flask!\n이 웹사이트는 텔레그램봇 \'Just do it!\' 을 위해 만들어진 웹사이트 입니다.'
+    return """
+    Hello from Flask! 이 웹사이트는 텔레그램봇 'Just do it!' 을 위해 만들어진 웹사이트 입니다.
+    """
 
 @app.route('/1300255931:AAF21AHhfaVaai74cSU-X9giO9pJg27x_gU', methods=['POST','GET'])
 def telegram():
@@ -36,11 +38,3 @@ def telegram():
     text = data['message']['text']
     sendMessage(chat_id,text)
     return json.dumps({'success0':True})
-
-def telegram1():
-    data = request.get_json()
-    print(data+'2번째데이터')
-    chat_id = data['message']['chat']['id']
-    text = data['message']['entities']['type']
-    sendMessage(chat_id,text)
-    return json.dumps({'success1':True})
