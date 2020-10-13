@@ -21,8 +21,8 @@ def sendMessage(chat_id, text):
     ])
     print(query)
     print(text)
-    baseRequest('sendMessage?'+query)
     baseRequest('sendMessage?'+text)
+    return
 
 
 @app.route('/')
@@ -38,7 +38,7 @@ def telegram():
     print(data)
     chat_id = data['message']['chat']['id']
     textM = data['message']['text']
-    if textM in '/help':
+    if textM == '/help':
         text = "Help Me!"
     else:
         text = "Nope!"
