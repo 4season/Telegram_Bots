@@ -15,11 +15,11 @@ def baseRequest(command="getMe"):
     return result
 
 def sendMessage(chat_id, text):
-    query0 = parse.urlencode([('chat_id',chat_id)])
+    query0 = parse.urlencode([('chat_id', chat_id)])
     query1 = parse.urlencode([('text', text)])
     print(query0)
     print(query1)
-    baseRequest('sendMessage?'+query0&query1)
+    baseRequest('sendMessage?'+query0+'&'+query1)
 
 
 @app.route('/')
